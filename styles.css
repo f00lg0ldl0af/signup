@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+:root {
+    --white: #f5f5f5;
+    --dark-blue: #06065d;
+    --blue: #0e49b5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Playfair Display', serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--white);
+    overflow: hidden; /**/
+}
+
+/* main */
+.main-grid {
+    display: grid;
+    grid-template-columns: 40% auto;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--blue);
+}
+/* form */
+.form-grid {
+    display: grid;
+    width: 50vw;
+    padding: 50px;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    color: var(--white);   
+}
+
+.form-header {
+    /*grid-column specify grid item's grid-column-start / grid-column-end*/
+    grid-column: 1 / -1;
+    font-size: 40px;
+    letter-spacing: 0.1em; 
+}
+
+form {
+    width: auto;
+    display: grid;
+    place-items: center;
+}
+
+button {
+    border: 0;
+    outline: none;
+    border-radius: 5px;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 10px 30px;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+
+}
+
+.login {
+    text-decoration: none;
+    color: var(--dark-blue)
+}
+
+/* image */
+
+.img-grid {
+    background-color: var(--white);
+    display: grid;
+    place-items: center;
+}
+
+.img-grid > img {
+    width: 90%;
+}
+
+.img-grid > p {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 30px;
+}
+
+.heading {
+    font-size: 50px;
+}
+
+/*form navigation*/
+
+.mobile-nav {
+    text-decoration: none; /*removes the tap icon on desktop*/
+    display: none;
+}
+
+.mobile-nav > img {
+    transform: scale(.1);
+}
