@@ -126,6 +126,10 @@ button {
     letter-spacing: 0.05em;
 }
 
+button:focus {
+    border: 5px solid var(--dark-blue);
+    box-shadow: 0 0 5px var(--dark-blue);
+}
 
 /* image */
 

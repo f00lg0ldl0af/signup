@@ -4,19 +4,19 @@ const signupPage = document.querySelector('.after-signup');
 
 let validCheck = 0;
 
-
 // include toggle event for after sign up page to appear after creating account 
 submitBtn.addEventListener('click', (e) => {
 
     // prevent from from being sent by cancelling the event 
     e.preventDefault();
 
-    if (validCheck == 4 && firstName.value && lastName.value) {
+    if (validCheck == 2 && !firstName.validity.valueMissing && !lastName.validity.valueMissing && pwd.validity.valid && cfmPwd.value == pwd.value) {
         mainPage.style.display = 'none'; /* hides the entire element; different from visibility: hidden where element contents will be invisible, but element stays in original position and size */
         signupPage.classList.remove('disabled');
     }    
-
 });
+
+/*     */
 
 /* error msg for first name */
 const firstName = document.querySelector('#firstname');
@@ -28,7 +28,6 @@ firstName.addEventListener("input", (e) => {
         firstNameError.textContent = 'Required';
     } else {
         firstNameError.textContent = '';
-        // validCheck++; this introduces potential bug, because with each char entered, increments validCheck by 1; so I can't just leave toggle event as conditional if (validCheck == 6) 
     }
 });
 
@@ -40,14 +39,13 @@ lastName.addEventListener("input", (e) => {
         lastNameError.textContent = 'Required';
     } else {
         lastNameError.textContent = '';
-        //validCheck++;
     }
 });
 
 /* error msg for phone */
 const mobile = document.querySelector('#mobile-number');
 const mobileError = document.querySelector('#mobile-error');
-mobile.addEventListener("keyup", (e) => {
+mobile.addEventListener("input", (e) => {
     if (mobile.validity.patternMismatch)
     {
         mobileError.textContent = 'Please enter a valid mobile number';
@@ -127,7 +125,7 @@ pwd.addEventListener("input", (e) => {
 } 
     else {
         pwdError.textContent = '';
-        validCheck++;
+        //validCheck++; increments with every character past 8 characters
 
     }
 });
@@ -140,7 +138,7 @@ cfmPwd.addEventListener('input', (e) => {
         cfmPwdError.textContent = "password does not match";
     } else {
         cfmPwdError.textContent = '';
-        validCheck++;
+        //validCheck++;
     }
 });
 
