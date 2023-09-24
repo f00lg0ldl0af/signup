@@ -4,6 +4,7 @@
     --white: #f5f5f5;
     --dark-blue: #06065d;
     --blue: #0e49b5;
+    --light-yellow: #f9d388;
 }
 
 * {
@@ -16,6 +17,7 @@
 body {
     background-color: var(--white);
     overflow: hidden; /**/
+    font-size: 20px;
 }
 
 /* main */
@@ -40,8 +42,71 @@ body {
 .form-header {
     /*grid-column specify grid item's grid-column-start / grid-column-end*/
     grid-column: 1 / -1;
-    font-size: 40px;
+    font-size: 60px;
     letter-spacing: 0.1em; 
+}
+
+input {
+    display: block;
+    border: 0;
+    border-radius: 5px;
+    border-bottom: 0.5px solid var(--white);
+    margin-top: 20px;
+    padding: 5px 5px 5px 8px; 
+    font-size: 20px;
+    background-color: var(--blue);
+    color: var(--white);
+
+    transition: all 0.03s ease-in;
+}
+
+input::placeholder {
+    content: none;
+}
+
+.btm-text {
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.input-container {
+    position: relative;
+}
+
+span {
+    transition: all 0.5s;
+    letter-spacing: 0.05em;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 20px 3px;
+    pointer-events: none; /* allow click or tap behaviour 
+    to "pass through" an element to another below it on the z-axis*/
+
+}
+
+/* input fields */
+
+input:focus ~ span,
+input:focus-visible ~span,
+input:valid ~ span {
+    font-size: 15px;
+    transform: translateX(5px) translateY(-2px);
+    font-size: 0.80em;
+    background-color: var(--dark-blue);
+    border-radius: 3px;
+    padding: 5px;
+}
+
+input:focus,
+input:focus-visible /*only if user needs to be informed where focus is currently is*/{
+    border: 2px solid var(--dark-blue);
+    box-shadow: 0 0 5px var(--dark-blue);
+    outline: none;
+}
+
+input:valid {
+    border: 2px solid var(--dark-blue);
 }
 
 form {
@@ -59,13 +124,8 @@ button {
     padding: 10px 30px;
     font-size: 20px;
     letter-spacing: 0.05em;
-
 }
 
-.login {
-    text-decoration: none;
-    color: var(--dark-blue)
-}
 
 /* image */
 
@@ -76,7 +136,7 @@ button {
 }
 
 .img-grid > img {
-    width: 90%;
+    width: 40%;
 }
 
 .img-grid > p {
@@ -87,10 +147,15 @@ button {
 }
 
 .heading {
-    font-size: 50px;
+    font-size: 40px;
 }
 
-/*form navigation*/
+.login {
+    text-decoration: none;
+    color: var(--dark-blue)
+}
+
+/*form navigation (mobile)*/
 
 .mobile-nav {
     text-decoration: none; /*removes the tap icon on desktop*/
@@ -99,4 +164,83 @@ button {
 
 .mobile-nav > img {
     transform: scale(.1);
+}
+
+@keyframes float {
+    0% {transform: translateY(0px);}
+    50% {transform: translateY(-10px);}
+    100% {transform: translateY(0px);}
+}
+
+/* page to appear after signup*/
+.disabled {
+    display: none;
+}
+
+/* after signup page   */
+
+
+/* error */
+.error {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 0 0 5px 5px;
+    
+    font-size: 80%;
+    background-color: var(--white);
+    color: var(--dark-blue);
+
+}
+
+/* Mobile first media queries*/
+
+@media only screen and (max-width: 600px) {
+
+    body {
+        width: 100%;
+        overflow: visible;
+    }
+
+    /* effect: img-grid fitting 100% on mobile screen */
+    .main-grid {
+        grid-template-rows: 100vh minmax(100vh, auto);
+        grid-template-columns: none;
+        overflow: hidden;
+        height: auto;
+    }
+
+    .img-grid {
+        width: 100%;
+        position: relative;
+    }
+
+    .img-grid > img {
+        width: 110%;
+        margin-top: -50px;
+    }
+    .subtitle {
+        margin-top: -120px;
+    }
+
+    .img-grid > [class] {
+        transform: scale(1);
+    }
+     
+    .mobile-nav {
+        display: block;
+        position: absolute;
+        animation: float 1s cubic-bezier(0.55, 0.055, 0.675, 0.19) infinite;
+        bottom: -240px;
+    }
+
+    /* effect: form-grid fitting 100% on mobile screen */
+    .form-grid {
+        display: grid;
+        width: 100%;
+        padding: 0;
+        place-items: center;
+        grid-template-columns: none;
+        grid-template-rows: none;
+        
+    }
 }

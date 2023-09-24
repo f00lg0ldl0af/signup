@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--forces Internet Explorer to use latest version of rendering engine-->
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <!--for chrome, Firefox OS and opera-->
     <meta name="theme-color" content=" #C89601"> 
     <!--for windows phone-->
@@ -21,8 +23,8 @@
         <div class="img-grid">
             <h1 class="heading">Monisma</h1>     
             <img src="signup.svg" alt="">
-            <p>Grow your money <br>the smart way</p>
-            <a href="" class="mobile-nav">
+            <p class="subtitle">Grow your money <br>the smart way</p>
+            <a href="#nav-btm" class="mobile-nav">
                 <img src="tap.png" alt="">
             </a>
         </div>
@@ -32,49 +34,63 @@
 
                 <h1 class="form-header">Start today</h1>
 
-                <div>
-                    <label for="">First name</label>
-                    <input type="text" required>
+                <div class="input-container">
+                    <label for="firstname"></label>
+                    <input type="text" id="firstname" name="firstname" required>
+                    <span>First name</span>
+                    <div id="firstname-error" class="error"></div>
                 </div>
 
-                <div>
-                    <label for="">Last name</label>
-                    <input type="text" required>
+                <div class="input-container">
+                    <label for="lastname"></label>
+                    <input type="text" id="lastname" name="lastname" required>
+                    <span>Last name</span>
+                    <div id="lastname-error" class="error"></div>
                 </div>
                 
-                <div>
-                    <label for="">Email</label>
-                    <input type="email" required>
+                <div class="input-container">
+                    <label for="email"></label>
+                    <input type="email" id="email" name="email" required minlength="8">
+                    <span>Email</span>
+                    <div id="email-error" class="error"></div>
                 </div>
 
-                <div>
-                    <label for="">Mobile</label>
-                    <input type="tel" required>
+                <div class="input-container">
+                    <label for="mobile-number"></label>
+                    <input type="tel" id="mobile-number" name="mobile-number" required pattern="(?=.*\d).{8,15}">
+                    <span>Mobile Number</span>
+                    <div id="mobile-error" class="error"></div>
                 </div>
 
-                <div>
-                    <label for="">Password</label>
-                    <input type="password" required>
+                <div class="input-container">
+                    <label for="pwd"></label>
+                    <input type="password" id="pwd" name="password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{8,16}">
+                    <span>Password</span>
+                    <div id="pwd-error" class="error"></div>
                 </div>
 
-                <div>
-                    <label for="">Confirm Password</label>
-                    <input type="password" required>
+                <div class="input-container">
+                    <label for="confirm-pwd"></label>
+                    <input type="password" id="confirm-pwd" name="confirm-pwd" required>
+                    <span>Confirm Password</span>
+                    <div id="cfm-pwd-error" class="error"></div>
                 </div>
-                <div>
-                    <button>Create Account</button>
-                    <p>
+
+                <div id="nav-btm">
+                    <button type="submit" class="submit-btn">Create Account</button>
+                    <p class="btm-text">
                         Already have an account?
                         <a class="login" href="">Log in</a>
                     </p>
                 </div>
             </div>
-
         </form>
     </main>
 
-    <section>
-
+    <section class="after-signup disabled" >
+        <h1 class="heading">Monisma</h1>     
+            <p class="subtitle">Signed up! Let's journey on.</p>
+            <img src="registered.svg" alt="">
     </section>
 </body>
 </html>
