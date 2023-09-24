@@ -1,4 +1,22 @@
 const submitBtn = document.querySelector('.submit-btn');
+const mainPage = document.querySelector('.main-grid');
+const signupPage = document.querySelector('.after-signup');
+
+let validCheck = 0;
+
+
+// include toggle event for after sign up page to appear after creating account 
+submitBtn.addEventListener('click', (e) => {
+
+    // prevent from from being sent by cancelling the event 
+    e.preventDefault();
+
+    if (validCheck == 4 && firstName.value && lastName.value) {
+        mainPage.style.display = 'none'; /* hides the entire element; different from visibility: hidden where element contents will be invisible, but element stays in original position and size */
+        signupPage.classList.remove('disabled');
+    }    
+
+});
 
 /* error msg for first name */
 const firstName = document.querySelector('#firstname');
@@ -10,6 +28,7 @@ firstName.addEventListener("input", (e) => {
         firstNameError.textContent = 'Required';
     } else {
         firstNameError.textContent = '';
+        // validCheck++; this introduces potential bug, because with each char entered, increments validCheck by 1; so I can't just leave toggle event as conditional if (validCheck == 6) 
     }
 });
 
@@ -21,6 +40,7 @@ lastName.addEventListener("input", (e) => {
         lastNameError.textContent = 'Required';
     } else {
         lastNameError.textContent = '';
+        //validCheck++;
     }
 });
 
@@ -30,10 +50,11 @@ const mobileError = document.querySelector('#mobile-error');
 mobile.addEventListener("keyup", (e) => {
     if (mobile.validity.patternMismatch)
     {
-        mobileError.textContent = 'Please enter a valid mobile number'
+        mobileError.textContent = 'Please enter a valid mobile number';
     } 
     else {
         mobileError.textContent = '';
+        validCheck++;
     }
 });
 
@@ -44,6 +65,7 @@ const emailError = document.querySelector('#email-error');
 email.addEventListener("input", (e) => {
     if (email.validity.valid) {
         emailError.textContent = "";
+        validCheck++;
     }
     else {
         showError();
@@ -105,6 +127,8 @@ pwd.addEventListener("input", (e) => {
 } 
     else {
         pwdError.textContent = '';
+        validCheck++;
+
     }
 });
 
@@ -116,13 +140,8 @@ cfmPwd.addEventListener('input', (e) => {
         cfmPwdError.textContent = "password does not match";
     } else {
         cfmPwdError.textContent = '';
+        validCheck++;
     }
-
 });
-
-// customise default "Please fill in this field" msg
-
-
-
 
 

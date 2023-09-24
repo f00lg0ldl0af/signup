@@ -16,7 +16,7 @@
 
 body {
     background-color: var(--white);
-    overflow: hidden; /**/
+    overflow: hidden; /* hide element from view */
     font-size: 20px;
 }
 
@@ -173,24 +173,82 @@ button {
 }
 
 /* page to appear after signup*/
+
+
+.after-signup {
+    display: flex;
+    background-color: var(--blue);
+    height: 100vh;
+    width: 100%;
+    z-index: 0; /* larger z-index elements cover those with smaller ones */
+    overflow: hidden;
+    align-items: center;
+    justify-content: space-evenly;
+    color: var(--white);
+    position: relative;
+}
+
+.after-signup > .heading {
+    position: absolute;
+    top: 0;
+}
+
+.after-signup > img {
+    height: 90%;
+    left: 0;
+    z-index: 1;
+}
+
+.after-signup > .subtitle {
+    z-index: 2;
+    font-weight: 700;
+    margin: 20px auto;
+}
+
+/* this should be placed after after-signup if not does not take effect */
 .disabled {
     display: none;
 }
-
-/* after signup page   */
-
 
 /* error */
 .error {
     width: 100%;
     box-sizing: border-box;
     border-radius: 0 0 5px 5px;
-    
+
     font-size: 80%;
     background-color: var(--white);
     color: var(--dark-blue);
 
 }
+
+/* applied to main-grid & after-signup*/
+
+/* animation: name duration timing-function delay iteration-count fill-mode */
+.moveup-animate {
+    animation: moveup 1.5s cubic-bezier(.36,-0.01,.5,1.38) 0s 1 forwards ;
+}
+
+@keyframes moveup {
+    0% {opacity: 0; transform: translateY(50px);} /*transparent, move downwards */
+    100% {opacity: 1; transform: inherit;} /* opaque, inherit position of image before translateY*/
+}
+
+/* applied to form-grid & after-signup svg */
+.moveright-animate {
+    animation: moveright 1.5s cubic-bezier(.36,-0.01,.5,1.38) 0s 1 forwards ;
+}
+
+@keyframes moveright {
+    0% {opacity: 0; transform: translateX(50px);}
+    100% {opacity: 1; transform: inherit;}
+}
+
+/* 
+animation-timing-function defines time animation uses to change from one set of
+css styles to another
+
+animation-fill-mode 'forwards' retains style values from last keyframe when animation ends */
 
 /* Mobile first media queries*/
 
@@ -240,7 +298,21 @@ button {
         padding: 0;
         place-items: center;
         grid-template-columns: none;
-        grid-template-rows: none;
-        
+        grid-template-rows: none;   
+    }
+
+    /* effect: after-signup page fitting 100% on mobile screen */
+    .after-signup {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .after-signup > img {
+        height: auto;
+    }
+
+    .after-signup > .subtitle {
+        order: 1;
+        z-index: 2;
     }
 }
