@@ -1,15 +1,21 @@
 <!-- PROJECT LOGO -->
-<div style="text-align: center">
+# Overview
+This is a project under [The Odin Project](https://www.theodinproject.com/)
+
+# Description
+This [sign-up form](https://f00lg0ldl0af.github.io/signup/) allows the user to register a new account with Monisma, a mock digital wealth management platform.
+
+<div align="center">
     <a href="https://f00lg0ldl0af.github.io/signup/">
         <img src="./favicon.png" alt="logo" width="100">
     </a>
-
-    <h3 style="text-align: center">Signup Form</h3>
-    <p style="text-align: center"> 
-        For Monisma, a mock digital wealth management platform
-    </p>
-
 </div>
+
+### Usage
+[View demo](https://f00lg0ldl0af.github.io/signup/):point_left:
+
+
+
 
 ## Built With
 
@@ -33,7 +39,7 @@
 * Animation with **Javascript** for better UX
 * Effective Design with color theory for better UI
 
-
+<br>
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
