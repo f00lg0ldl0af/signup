@@ -40,7 +40,7 @@ This [sign-up form](https://f00lg0ldl0af.github.io/signup/) allows the user to r
 * Effective Design with color theory for better UI
 
 <br>
-<!-- ACKNOWLEDGMENTS -->
+
 ## Acknowledgments
 
 * [The Odin Project](https://www.theodinproject.com/)
