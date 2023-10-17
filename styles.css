@@ -178,7 +178,6 @@ button:focus {
 
 /* page to appear after signup*/
 
-
 .after-signup {
     display: flex;
     background-color: var(--blue);
