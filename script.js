@@ -49,10 +49,12 @@ mobile.addEventListener("input", (e) => {
     if (mobile.validity.patternMismatch)
     {
         mobileError.textContent = 'Please enter a valid mobile number';
+        mobile.classList.add('still-not-valid');
     } 
     else {
         mobileError.textContent = '';
         validCheck++;
+        mobile.classList.remove('still-not-valid');
     }
 });
 
@@ -64,9 +66,11 @@ email.addEventListener("input", (e) => {
     if (email.validity.valid) {
         emailError.textContent = "";
         validCheck++;
+        email.classList.remove('still-not-valid');
     }
     else {
         showError();
+        email.classList.add('still-not-valid');
     }
 });
 
@@ -121,11 +125,15 @@ pwd.addEventListener("input", (e) => {
             result += "";
         }
         
-    pwdError.innerText = result; 
+    pwdError.innerText = result;
+    pwd.classList.add('still-not-valid');
+ 
 } 
     else {
         pwdError.textContent = '';
         //validCheck++; increments with every character past 8 characters
+        pwd.classList.remove('still-not-valid');
+
 
     }
 });
