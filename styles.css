@@ -58,6 +58,8 @@ input {
     color: var(--white);
 
     transition: all 0.03s ease-in;
+
+    width: 90%;
 }
 
 input::placeholder {
@@ -221,14 +223,14 @@ button:focus {
 
 /* error */
 .error {
-    width: 100%;
-    box-sizing: border-box;
+    width: 93.5%;
     border-radius: 0 0 5px 5px;
 
     font-size: 80%;
     background-color: var(--white);
     color: var(--dark-blue);
 
+    border: solid;
 }
 
 /* applied to main-grid & after-signup*/
